@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine. Events;
+using UnityEngine.Events;
 
 public class Gun : MonoBehaviour
 {
     public UnityEvent OnGunShoot;
     public float FireCooldown;
     public Transform PlayerCamera;
+    public ParticleSystem MuzzleFlash;
 
     // By default gun is semi
     public bool Automatic;
@@ -39,6 +40,7 @@ public class Gun : MonoBehaviour
             {
                 if (CurrentCooldown <= 0f)
                 {
+                    MuzzleFlash.Play();
                     OnGunShoot?.Invoke();
                     CurrentCooldown = FireCooldown;
                 }
@@ -48,3 +50,4 @@ public class Gun : MonoBehaviour
         CurrentCooldown -= Time.deltaTime;
     }
 }
+

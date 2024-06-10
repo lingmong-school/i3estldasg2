@@ -6,8 +6,12 @@ using UnityEngine.Events;
 public class GunDamage : MonoBehaviour
 {
     public float Damage;
+    public float ExplosiveDamage = 1f;
     public Transform PlayerCamera; // Define PlayerCamera
     public float BulletRange = 100f; // Define BulletRange with a default value
+    public GameObject impactEffect;
+    public float BlastRadius = 2f;
+    public float Force = 700f;
 
     public void Shoot()
     {
@@ -19,6 +23,26 @@ public class GunDamage : MonoBehaviour
                 enemy.Health -= Damage;
                 Debug.Log("Damage taken");
             }
+
+            //explosion effects
+            GameObject impactGO = Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            Destroy(impactGO, 2.2f);
+
+            Collider[] colliders = Physics.OverlapSphere(hitInfo.point, BlastRadius);
+
+            foreach (Collider nearbyObject in colliders)
+            {
+                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    enemy.Health -= ExplosiveDamage;
+                    rb.AddExplosionForce(Force, hitInfo.point, BlastRadius);
+                }
+
+            }
         }
     }
+
+    
+
 }
