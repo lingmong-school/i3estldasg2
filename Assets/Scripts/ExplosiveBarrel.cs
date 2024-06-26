@@ -7,16 +7,16 @@ public class ExplosiveBarrel : MonoBehaviour
     public float explosionRadius = 5f;
     public float explosionForce = 1000f;
     public GameObject explosionEffect; // Prefab for explosion effect
+    public AudioClip explosionSound; // Sound effect for the explosion
+
     private Rigidbody rb;
     private bool isExploding = false; // Prevent multiple explosions
+    private AudioSource audioSource; // Reference to the AudioSource component
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if (rb == null)
-        {
-            Debug.LogError("No Rigidbody found on the barrel.");
-        }
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -47,14 +47,20 @@ public class ExplosiveBarrel : MonoBehaviour
             Instantiate(explosionEffect, transform.position, transform.rotation);
         }
 
+        // Play explosion sound
+        if (explosionSound != null)
+        {
+            audioSource.PlayOneShot(explosionSound);
+        }
+
         // Apply explosion force to nearby objects
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider nearbyObject in colliders)
         {
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            if (rb != null)
+            Rigidbody nearbyRb = nearbyObject.GetComponent<Rigidbody>();
+            if (nearbyRb != null)
             {
-                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                nearbyRb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
 
             // Apply damage to entities (if they have a health script)
@@ -65,7 +71,12 @@ public class ExplosiveBarrel : MonoBehaviour
             }
         }
 
-        // Destroy the barrel
-        Destroy(gameObject);
+        // Disable the barrel's visual and physical components
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        rb.isKinematic = true;
+
+        // Destroy the barrel after the sound has finished playing
+        Destroy(gameObject, explosionSound.length);
     }
 }

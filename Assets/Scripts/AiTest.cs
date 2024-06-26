@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
 
 public class AiTest : MonoBehaviour
@@ -10,15 +11,19 @@ public class AiTest : MonoBehaviour
     public float attackRange = 2f; // Range within which the enemy attacks the player
     public float attackCooldown = 2f; // Cooldown time between attacks
     public HealthBarManager DamageReduction;
+    public AudioClip attackSound; // The sound effect to play when attacking
 
     private Rigidbody rb;
     private Animator animator;
+    private AudioSource audioSource; // Reference to the AudioSource component
     private float lastAttackTime;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
         if (rb == null)
         {
             Debug.LogError("No Rigidbody found on the enemy.");
@@ -27,11 +32,15 @@ public class AiTest : MonoBehaviour
         {
             Debug.LogError("No Animator found on the enemy.");
         }
+        if (audioSource == null)
+        {
+            Debug.LogError("No AudioSource found on the enemy.");
+        }
     }
 
     private void FixedUpdate()
     {
-        if (rb == null || player == null || animator == null)
+        if (rb == null || player == null || animator == null || audioSource == null)
         {
             return;
         }
@@ -89,7 +98,12 @@ public class AiTest : MonoBehaviour
         animator.SetBool("isAttacking", true);
         Debug.Log("Enemy attacks the player!");
         DamageReduction.TakeDamage(1);
-        //send message to to hurt player
+
+        // Play the attack sound
+        if (attackSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
     }
 
     // Optional: Visualize detection and attack range in the Unity Editor

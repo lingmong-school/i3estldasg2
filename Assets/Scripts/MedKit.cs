@@ -4,22 +4,49 @@ using UnityEngine;
 
 public class MedKit : MonoBehaviour
 {
-    public HealthBarManager DamageHeal;  // Call the healthbar
+    public HealthBarManager DamageHeal; // Reference to the health bar manager
+    public AudioClip healSound; // Sound effect for healing
+
+    private AudioSource audioSource; // Reference to the AudioSource component
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        //Make Medkit spin
+        // Make MedKit spin
         transform.localRotation = Quaternion.Euler(0f, Time.time * 100f, 0);
     }
-    // Make Medkit dissappear
+
+    // Make MedKit disappear and play heal sound
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             DamageHeal.Heal(2);
-            Destroy(gameObject);
+            PlayHealSound();
+            HideMedKit();
         }
     }
+
+    private void PlayHealSound()
+    {
+        if (healSound != null)
+        {
+            audioSource.PlayOneShot(healSound);
+        }
+    }
+
+    private void HideMedKit()
+    {
+        // Disable the MedKit's visual and physical components
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+
+        // Destroy the MedKit after the sound has finished playing
+        Destroy(gameObject, healSound.length);
+    }
 }
-
-

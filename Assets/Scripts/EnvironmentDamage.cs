@@ -12,14 +12,15 @@ public class EnvironmentDamage : MonoBehaviour
     {
         if (other.CompareTag("Player") && canDamage)
         {
-            DamageReduction.TakeDamage(1);
-            canDamage = false; // Disable further damage
-            Invoke("ResetDamage", damageCooldown); // Schedule the ResetDamage method to be called after the cooldown period
+            DamageReduction.TakeDamage(2);
+            StartCoroutine(DamageCooldownCoroutine()); // Start the cooldown coroutine
         }
     }
 
-    private void ResetDamage()
+    private IEnumerator DamageCooldownCoroutine()
     {
+        canDamage = false; // Disable further damage
+        yield return new WaitForSeconds(damageCooldown); // Wait for the cooldown period
         canDamage = true; // Enable damage again
     }
 }

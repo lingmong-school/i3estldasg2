@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour
     public float FireCooldown;
     public Transform PlayerCamera;
     public ParticleSystem MuzzleFlash;
+    public AudioSource shootingSound; // Reference to the AudioSource component
 
     // By default gun is semi
     public bool Automatic;
@@ -34,7 +35,7 @@ public class Gun : MonoBehaviour
                 }
             }
         }
-        else
+        else // Semi-automatic mode
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -42,6 +43,7 @@ public class Gun : MonoBehaviour
                 {
                     MuzzleFlash.Play();
                     OnGunShoot?.Invoke();
+                    shootingSound.Play(); // Play the shooting sound
                     CurrentCooldown = FireCooldown;
                 }
             }
@@ -50,4 +52,3 @@ public class Gun : MonoBehaviour
         CurrentCooldown -= Time.deltaTime;
     }
 }
-

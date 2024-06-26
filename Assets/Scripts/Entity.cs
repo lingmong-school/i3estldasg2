@@ -7,6 +7,7 @@ public class Entity : MonoBehaviour
 {
     [SerializeField] private float StartingHealth;
 
+    private DoorFacility doorFacility;
     private float health;
     public float Health
     {
@@ -20,6 +21,10 @@ public class Entity : MonoBehaviour
 
             if (health <= 0f)
             {
+                if (doorFacility != null)
+                {
+                    doorFacility.EnemyDestroyed(GetComponent<Collider>());
+                }
                 Debug.Log("Dead");
                 Destroy(gameObject);
             }
@@ -28,6 +33,7 @@ public class Entity : MonoBehaviour
 
     void Start()
     {
+        doorFacility = FindObjectOfType<DoorFacility>();
         Health = StartingHealth;
     }
 }
