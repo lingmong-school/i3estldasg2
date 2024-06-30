@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:12/6/2024
+* Description: Mute all sounds
+*/
 public class MuteControl : MonoBehaviour
 {
     public Toggle muteToggle;

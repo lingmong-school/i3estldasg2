@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
+/*
+* Author:Rayn Bin Kamaludin
+* Date: 12/6/2024
+* Description: Ai for enemy 
+*/
 
 public class AiTest : MonoBehaviour
 {

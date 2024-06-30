@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+* Author:Rayn Bin Kamaludin
+* Date:15/6/2024
+* Description: Laser behavior handler
+*/
 
 public class LaserActivation : MonoBehaviour
 {
@@ -20,13 +25,13 @@ public class LaserActivation : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (isActive && timer >= activeDuration)
+        if (isActive && timer >= activeDuration) // Laser off
         {
             DeactivateLaser();
             isActive = false;
             timer = 0f;
         }
-        else if (!isActive && timer >= inactiveDuration)
+        else if (!isActive && timer >= inactiveDuration) // Laser on
         {
             ActivateLaser();
             isActive = true;

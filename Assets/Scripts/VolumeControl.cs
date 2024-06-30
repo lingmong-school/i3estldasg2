@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:12/6/2024
+* Description: Control volume of game
+*/
 public class VolumeControl : MonoBehaviour
 {
     public Slider volumeSlider;

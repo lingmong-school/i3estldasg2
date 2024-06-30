@@ -2,6 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+* Author:Rayn Bin Kamaludin
+* Date:29/6/2024
+* Description: Teleport player to home scene
+*/
+
 public class WarehouseDoor : MonoBehaviour
 {
     public Vector3 targetPosition; // Set this in the Inspector to the desired teleport location

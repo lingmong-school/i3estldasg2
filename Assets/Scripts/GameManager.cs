@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/*
+* Author:Rayn Bin Kamaludin
+* Date:29/6/2024
+* Description: Stores values between scenes
+*/
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +15,7 @@ public class GameManager : MonoBehaviour
     public FirstPersonController firstPersonController;
     public HealthBarManager health;
     public PlayerInventory playerInventory;
+
 
     void Awake()
     {
@@ -40,7 +46,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Re-establish references to objects in the new scene here
-        if (scene.name == "Menu")
+        if (scene.name == "Menu" || scene.name == "Death" || scene.name =="Win")
         {
             Destroy(gameObject);
         }

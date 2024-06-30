@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+* Author:Rayn Bin Kamaludin
+* Date:12/6/2024
+* Description: Check player inventory status
+*/
+
+
 public class InventoryUIUpdater : MonoBehaviour
 {
     public PlayerInventory playerInventory; // Reference to the PlayerInventory script

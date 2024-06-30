@@ -1,5 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/*
+* Author:Rayn Bin Kamaludin
+* Date:29/6/2024
+* Description: Teleport player after exiting facility
+*/
 
 public class WarehouseReturn : MonoBehaviour
 {

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+/*
+* Author:Rayn Bin Kamaludin
+* Date:139/6/2024
+* Description: Handles health bar values and healing
+*/
 
 public class HealthBarManager : MonoBehaviour
 {
@@ -33,6 +39,7 @@ public class HealthBarManager : MonoBehaviour
         if (currentHealth < 0)
         {
             currentHealth = 0;
+            SceneManager.LoadScene(5);
         }
         UpdateHealthBar();
     }

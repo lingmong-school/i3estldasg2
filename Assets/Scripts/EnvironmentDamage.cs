@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:29/6/2024
+* Description: Damage handler for objects
+*/
 public class EnvironmentDamage : MonoBehaviour
 {
     public float damageCooldown = 0.35f; // Cooldown period in seconds

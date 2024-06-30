@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:15/6/2024
+* Description: Gun shooting timing
+*/
 public class Gun : MonoBehaviour
 {
     public UnityEvent OnGunShoot;

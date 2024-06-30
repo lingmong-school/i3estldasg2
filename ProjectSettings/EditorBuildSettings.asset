@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 8e142766e7bf7aa4288e5bc64d8440aa
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 8f43dcdc040a31746b4800c922b71623
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 34e447e0e382b35499318fa03e60400b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: cf38e16d7ed990143923a4a3ccc83622,
       type: 2}

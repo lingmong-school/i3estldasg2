@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+* Author:Rayn Bin Kamaludin
+* Date:29/6/2024
+* Description: Spawning enemies in the center
+*/
 
 public class EnemySpawn : MonoBehaviour
 {

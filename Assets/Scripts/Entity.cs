@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:29/6/2024
+* Description: Objects that can be shot at
+*/
 public class Entity : MonoBehaviour
 {
     [SerializeField] private float StartingHealth;

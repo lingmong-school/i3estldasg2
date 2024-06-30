@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+* Author:Rayn Bin Kamaludin
+* Date:25/6/2024
+* Description: Player inventory storage
+*/
 
 public class PlayerInventory : MonoBehaviour
 {

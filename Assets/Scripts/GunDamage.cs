@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:12/6/2024
+* Description: Gun effect variables
+*/
 public class GunDamage : MonoBehaviour
 {
     public float Damage;

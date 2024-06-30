@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:29/6/2024
+* Description: Checking  fior enemies in a area
+*/
 public class DoorFacility : MonoBehaviour
 {
     public Animator DoorAnim;

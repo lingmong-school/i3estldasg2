@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+* Author:Rayn Bin Kamaludin
+* Date:13/6/2024
+* Description: Medkit handler
+*/
 public class MedKit : MonoBehaviour
 {
     public AudioClip healSound; // Sound effect for healing

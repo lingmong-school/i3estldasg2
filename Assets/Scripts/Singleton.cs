@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+* Author:Rayn Bin Kamaludin
+* Date:12/6/2024
+* Description: Make sure 1 instance is present
+*/
+
 public class Singleton : MonoBehaviour
 {
     private static Singleton instance;

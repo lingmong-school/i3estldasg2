@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/*
+* Author:Rayn Bin Kamaludin
+* Date:12/6/2024
+* Description: interaction system
+*/
+
 public interface PickUp
 {
     void Interact();

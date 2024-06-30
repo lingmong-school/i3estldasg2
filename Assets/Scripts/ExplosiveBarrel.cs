@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+* Author:Rayn Bin Kamaludin
+* Date:21/6/2024
+* Description: Explosive barrel functionality
+*/
 
 public class ExplosiveBarrel : MonoBehaviour
 {
