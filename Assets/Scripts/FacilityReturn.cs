@@ -15,13 +15,13 @@ public class FacilityReturn : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
-            SceneManager.LoadScene(3); // Load the target scene
+            SceneManager.LoadScene(4); // Load the target scene
         }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 3) // Ensure the correct scene is loaded
+        if (scene.buildIndex == 4) // Ensure the correct scene is loaded
         {
             GameManager.instance.firstPersonController.transform.position = teleportPosition; // Teleport the player
             SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from the event

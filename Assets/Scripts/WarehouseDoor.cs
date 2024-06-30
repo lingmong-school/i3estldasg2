@@ -28,7 +28,7 @@ public class WarehouseDoor : MonoBehaviour
     private IEnumerator LoadSceneAndTeleportPlayer(GameObject player)
     {
         // Load the new scene asynchronously
-        UnityEngine.AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(2);
+        UnityEngine.AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(3);
 
         // Wait until the scene has fully loaded
         while (!asyncLoad.isDone)

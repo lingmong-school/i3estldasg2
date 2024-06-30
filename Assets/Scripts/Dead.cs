@@ -20,7 +20,7 @@ public class Dead : MonoBehaviour
 
     public void ReturnMenu()
     {
-        SceneManager.LoadScene(4); // Load menu
+        SceneManager.LoadScene(0); // Load menu
     }
 
     public void QuitGame()
