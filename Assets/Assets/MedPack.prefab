@@ -62,7 +62,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3472692b3759b124b882d67038c0e42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageHeal: {fileID: 0}
   healSound: {fileID: 8300000, guid: 5e40eb1a0a0dd144289434382454a866, type: 3}
 --- !u!82 &-1613135417277047811
 AudioSource:
@@ -76,7 +75,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5e40eb1a0a0dd144289434382454a866, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.729
   m_Pitch: 1
   Loop: 0
   Mute: 0

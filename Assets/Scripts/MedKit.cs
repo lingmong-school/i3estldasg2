@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MedKit : MonoBehaviour
 {
-    public HealthBarManager DamageHeal; // Reference to the health bar manager
     public AudioClip healSound; // Sound effect for healing
 
     private AudioSource audioSource; // Reference to the AudioSource component
@@ -26,7 +25,7 @@ public class MedKit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DamageHeal.Heal(2);
+            GameManager.instance.health.Heal(2);
             PlayHealSound();
             HideMedKit();
         }

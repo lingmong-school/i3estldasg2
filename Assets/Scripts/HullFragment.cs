@@ -10,12 +10,11 @@ using UnityEngine;
 
 public class HullFragment : MonoBehaviour, PickUp
 {
-    public PlayerInventory playerInventory;
 
 
     public void Interact()
     {
-        playerInventory.hasHull = true;
+        GameManager.instance.playerInventory.hasHull = true;
         Destroy(gameObject); // Destroy the core
     }
 }

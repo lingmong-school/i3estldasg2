@@ -8,4 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Outdoor.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Facilty.unity
+    guid: 9a2bd00273a5ff74e8f9f198c20b6fcb
+  - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: a14a293a8d91f694fba2158319e26a47
+  - enabled: 1
+    path: Assets/Scenes/MidGane.unity
+    guid: e53e44f1a68139b4db2c9049964b44a6
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 8e142766e7bf7aa4288e5bc64d8440aa
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: cf38e16d7ed990143923a4a3ccc83622,
+      type: 2}

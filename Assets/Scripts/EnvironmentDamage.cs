@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnvironmentDamage : MonoBehaviour
 {
-    public HealthBarManager DamageReduction;
     public float damageCooldown = 0.35f; // Cooldown period in seconds
     private bool canDamage = true; // Flag to control damage cooldown
 
@@ -12,7 +11,7 @@ public class EnvironmentDamage : MonoBehaviour
     {
         if (other.CompareTag("Player") && canDamage)
         {
-            DamageReduction.TakeDamage(2);
+            GameManager.instance.health.TakeDamage(2);
             StartCoroutine(DamageCooldownCoroutine()); // Start the cooldown coroutine
         }
     }

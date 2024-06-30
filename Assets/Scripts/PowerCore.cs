@@ -10,12 +10,11 @@ using UnityEngine;
 
 public class PowerCore : MonoBehaviour, PickUp
 {
-    public PlayerInventory playerInventory;
 
 
     public void Interact()
     {
-        playerInventory.hasPower = true;
+        GameManager.instance.playerInventory.hasPower = true;
         Destroy(gameObject); // Destroy the core
     }
 }

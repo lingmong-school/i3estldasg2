@@ -7,9 +7,15 @@ public class HealthBarManager : MonoBehaviour
 {
     public int maxHealth = 9;
     public int currentHealth;
+    public AudioClip attackSound; // The sound effect to play when hurt
+    public AudioSource audioSource; // Reference to the AudioSource component
 
     public Image healthBarImage; // Reference to the UI Image component
     public Sprite[] healthBarSprites; // Array of health bar sprites
+
+
+
+
 
     void Start()
     {
@@ -19,6 +25,10 @@ public class HealthBarManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (attackSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
         currentHealth -= damage;
         if (currentHealth < 0)
         {

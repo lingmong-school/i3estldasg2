@@ -5,7 +5,6 @@ using UnityEngine;
 public class DoorKeycard : MonoBehaviour, PickUp
 {
     public Animator DoorAnim;
-    public PlayerInventory playerInventory; // Reference to the player's inventory
 
     void Start()
     {
@@ -14,7 +13,7 @@ public class DoorKeycard : MonoBehaviour, PickUp
 
     public void Interact()
     {
-        if (playerInventory.hasKeycard)
+        if (GameManager.instance.playerInventory.hasKeycard)
         {
             DoorAnim.SetBool("Open", true); // Open the door
         }

@@ -10,12 +10,11 @@ using UnityEngine;
 
 public class EngineModule : MonoBehaviour, PickUp
 {
-    public PlayerInventory playerInventory;
 
 
     public void Interact()
     {
-        playerInventory.hasEngine = true;
+        GameManager.instance.playerInventory.hasEngine = true;
         Destroy(gameObject); // Destroy the core
     }
 }

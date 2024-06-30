@@ -10,12 +10,11 @@ using UnityEngine;
 
 public class Keycard : MonoBehaviour, PickUp
 {
-    public PlayerInventory playerInventory;
 
 
     public void Interact()
     {
-        playerInventory.hasKeycard = true;
+        GameManager.instance.playerInventory.hasKeycard = true;
         Destroy(gameObject); // Destroy the keycard
     }
 }

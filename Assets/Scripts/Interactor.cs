@@ -2,25 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-/*
-* Author:Rayn Bin Kamaludin
-* Date:12/5/2024
-* Description: Player interact script
-*/
 
-
-interface PickUp
+public interface PickUp
 {
-    public void Interact();
+    void Interact();
 }
 
 public class Interactor : MonoBehaviour
 {
-    // Interactable object conditions
     public Transform InteractorSource;
-    public float InteractRange; // How far interactable range is
+    public float InteractRange = 5f; // Example range, adjust as needed
 
+    private PlayerInputActions playerInputActions;
 
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Interact.performed += ctx => OnInteract();
+    }
+
+    private void OnEnable()
+    {
+        playerInputActions.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInputActions.Player.Disable();
+    }
 
     void OnInteract()
     {
@@ -29,15 +38,11 @@ public class Interactor : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out PickUp interactObj))
             {
+                Debug.Log(hitInfo.transform.name);
                 interactObj.Interact();
             }
         }
     }
 
-
-    // Update is called once per frame
-    void Update() //Create a ray from the camera to the interactable object
-    {
-        
-    }
+    
 }
